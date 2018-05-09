@@ -1,0 +1,51 @@
+kompilacja portfela Ubuntu
+chmod +x Kraken/src/leveldb/build_detect_platform
+chmod +x Kraken/src/secp256k1/autogen.sh
+
+sudo apt-get install qt5-default qt5-qmake qtbase5-dev-tools qttools5-dev-tools build-essential libboost-dev libboost-system-dev libboost-filesystem-dev libboost-program-options-dev libboost-thread-dev libssl-dev libdb++-dev libminiupnpc-dev
+
+sudo apt-get install autoconf autogen intltool
+
+sudo apt-get install libtool
+
+sudo apt-get install libgmp3-dev
+
+sudo apt-get remove appmenu-qt5
+
+qmake USE_UPNP=-
+
+make
+----------------------------------------------
+uruchomienie portfela pod Ubuntu 16.04 64bit
+chmod +x Kraken-qt
+sudo apt-get install qt5-default qt5-qmake qtbase5-dev-tools qttools5-dev-tools build-essential libboost-dev libboost-system-dev libboost-filesystem-dev libboost-program-options-dev libboost-thread-dev libssl-dev libdb++-dev libminiupnpc-dev
+----------------------------------------------
+sprawdzić połączenie z bibliotekami boost
+ldd /Kraken/Kraken-qt | grep boost
+----------------------------------------------
+sprawdzić źródło skąd pobierany jest boost
+apt-cache show libboost-dev
+----------------------------------------------
+sprawdzenie pliku instalacyjnego boost w systemie
+dpkg -S /usr/include/boost/version.hpp
+----------------------------------------------
+usuwanie paczki np boost
+sudo apt-get autoremove libboost1.58-dev
+----------------------------------------------
+instalacja boost
+sudo apt-get install libboost-all-dev
+----------------------------------------------
+sprawdzenie boost programem aptitude
+sudo apt-get install aptitude
+aptitude search boost
+----------------------------------------------
+uruchomienie portfela pod Ubuntu 16.04 32bit
+chmod +x Kraken-qt
+sudo apt-get install qt5-default qt5-qmake qtbase5-dev-tools build-essential qttools5-dev-tools:i386 libboost-dev:i386 libboost-system-dev:i386 libboost-filesystem-dev:i386 libboost-program-options-dev:i386 libboost-thread-dev:i386 libssl-dev:i386 libdb++-dev:i386 libminiupnpc-dev:i386
+
+chyba bez tego
+apt-get install libc6-i386
+sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386
+sudo apt-get install multiarch-support
+----------------------------------------------
+
